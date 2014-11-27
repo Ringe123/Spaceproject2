@@ -1,0 +1,16 @@
+Grundläggande:
+
+Attack för player
+Kamera lagg?
+HP för spelare och fiender
+Fiender rörelse
+GUI
+Någon form av poängsystem
+Fylla världen
+
+Ideer:
+
+Dockning vid spacestations
+uppgradera skepp / flera vapen
+Nivåer på fiender
+Sköld på skepp?
