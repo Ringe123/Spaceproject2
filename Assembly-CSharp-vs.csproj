@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\BackgroundMover.cs" />
      <Compile Include="Assets\BulletMovement.cs" />
+     <Compile Include="Assets\DetectandAttack.cs" />
+     <Compile Include="Assets\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\DamageByCollision.cs" />
      <Compile Include="Assets\Scripts\DamageHandler.cs" />
@@ -55,6 +57,7 @@
      <Compile Include="Assets\Scripts\PlanetGravitation.cs" />
      <Compile Include="Assets\Scripts\PlanetRotation.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+     <Compile Include="Assets\Scripts\UpdateGUI.cs" />
      <Compile Include="Assets\bulletSelfDestruct.cs" />
      <None Include="Assets\TODO.txt" />
   </ItemGroup>

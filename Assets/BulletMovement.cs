@@ -4,6 +4,7 @@ using System.Collections;
 public class BulletMovement : MonoBehaviour {
 
 	public float maxSpeed = 5f;
+	public float damage = 10f;
 
 
 	void Update () {

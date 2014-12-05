@@ -8,7 +8,7 @@ public class DamageByCollision : MonoBehaviour {
 		Debug.Log ("krashade in i planet med " + collider.name);
 		GameObject player = GameObject.FindGameObjectWithTag (collider.tag);
 		audio.Play ();
-		Destroy (player);
+		//Destroy (player);
 
 	}
 }

@@ -7,33 +7,44 @@ public class PlanetGravitation : MonoBehaviour {
 	GameObject unit;
 	bool beingPulled = false;
 	public Texture2D guiIcon;
+	public float shinkrate = 0.5f;
 	string unitTag;
 
 	void OnTriggerEnter2D(Collider2D collider){
 
 		unitTag = collider.tag;
-		unit = GameObject.FindGameObjectWithTag (unitTag);
+		Debug.Log (collider.name);
+		//unit = GameObject.FindGameObjectWithTag (unitTag);
+		unit = GameObject.Find (collider.name);
 		beingPulled = true;
 
 	}
 
 	void OnTriggerExit2D(Collider2D collider){
 
+		Debug.Log ("kommer hit");
 		beingPulled = false;
-
+		unit = null;
 	}
 
 	void Update(){
 
-		if (unit != null) {
-						if (beingPulled == true) {
-								
-								//TODO fixa högre gravitation ju närmre mitten
-								//Vector3 orbitCenter = transform.position;
-								//float distance = Vector3.Distance(orbitCenter, unit.transform.position);
-								
-								unit.transform.position = Vector3.Lerp (unit.transform.position, transform.position, gravitationPull * Time.deltaTime);
+		Debug.Log (beingPulled);
 
+		if (unit != null) {
+				if (beingPulled == true) {
+								
+						//TODO fixa högre gravitation ju närmre mitten
+
+						float test = unit.transform.localScale.x * -1;
+						unit.transform.localScale = new Vector3(unit.transform.localScale.x - shinkrate * Time.deltaTime, unit.transform.localScale.y - shinkrate * Time.deltaTime, unit.transform.localScale.z);
+						unit.transform.position = Vector3.Lerp (unit.transform.position, transform.position, test * Time.deltaTime);					
+						
+						if (unit.transform.localScale.x <= 0) {
+
+							Destroy(unit);
+							
+								}
 						}
 				}
 	}
@@ -42,7 +53,7 @@ public class PlanetGravitation : MonoBehaviour {
 
 		if (beingPulled == true) {
 
-			GUI.Label(new Rect(100, 100 , 100,50), guiIcon);
+			GUI.Label(new Rect(0, 0 , 100,50), guiIcon);
 
 
 				}

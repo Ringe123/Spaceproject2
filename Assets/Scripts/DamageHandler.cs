@@ -18,7 +18,9 @@ public class DamageHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if (maxHealth <= 0) {
+
+
+		if (currentHealth <= 0f) {
 
 			Die();
 
@@ -28,7 +30,28 @@ public class DamageHandler : MonoBehaviour {
 
 	void Die(){
 
-		Destroy (player);
+		Destroy (this.gameObject);
+
+	}
+
+	void OnTriggerEnter2D (Collider2D collider){
+
+		//GameObject hitObject = GameObject.Find (collider.name);
+		switch (collider.name) {
+
+				case "LaserShot(Clone)": 
+					currentHealth -= 5f;
+			break;
+
+				case "Rocket":
+					currentHealth -= 20f;
+			break;
+
+
+			default:
+			break;
+			}
+
 
 	}
 }

@@ -16,4 +16,10 @@ public class bulletSelfDestruct : MonoBehaviour {
 				}
 
 	}
+
+	void OnTriggerEnter2D(Collider2D collider){
+
+		Destroy (this.gameObject);
+
+	}
 }
