@@ -3,8 +3,8 @@ using System.Collections;
 
 public class DamageHandler : MonoBehaviour {
 
-	public float maxHealth = 100f;
-	public float currentHealth = 100f;
+	public int maxHealth = 100;
+	public int currentHealth = 100;
 	GameObject player;
 
 
@@ -34,17 +34,28 @@ public class DamageHandler : MonoBehaviour {
 
 	}
 
+	public int getCurrentHP(){
+
+		return currentHealth;
+
+	}
+
 	void OnTriggerEnter2D (Collider2D collider){
 
 		//GameObject hitObject = GameObject.Find (collider.name);
+		//TODO: ta bort switchsats
 		switch (collider.name) {
 
 				case "LaserShot(Clone)": 
-					currentHealth -= 5f;
+				currentHealth -= collider.gameObject.GetComponent<BulletMovement>().damage;;
+			break;
+				case "LaserShot2(Clone)": 
+				
+				currentHealth -= collider.gameObject.GetComponent<BulletMovement>().damage;
 			break;
 
 				case "Rocket":
-					currentHealth -= 20f;
+					currentHealth -= 20;
 			break;
 
 
